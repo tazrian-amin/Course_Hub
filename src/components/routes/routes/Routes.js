@@ -19,22 +19,22 @@ export const routes = createBrowserRouter([
             {
                 path: '/',
                 element: <Home></Home>,
-                loader: () => fetch('http://localhost:5000/courses')
+                loader: () => fetch('https://learning-platform-server-eta-seven.vercel.app/courses')
             },
             {
                 path: '/category/:id',
                 element: <Category></Category>,
-                loader: ({ params }) => fetch(`http://localhost:5000/category/${params.id}`)
+                loader: ({ params }) => fetch(`https://learning-platform-server-eta-seven.vercel.app/${params.id}`)
             },
             {
                 path: '/course/:id',
                 element: <Course></Course>,
-                loader: ({ params }) => fetch(`http://localhost:5000/course/${params.id}`)
+                loader: ({ params }) => fetch(`https://learning-platform-server-eta-seven.vercel.app/${params.id}`)
             },
             {
                 path: '/checkout/:id',
                 element: <PrivateRoute><Premium></Premium></PrivateRoute>,
-                loader: ({ params }) => fetch(`http://localhost:5000/course/${params.id}`)
+                loader: ({ params }) => fetch(`https://learning-platform-server-eta-seven.vercel.app/${params.id}`)
             },
             {
                 path: '/login',
