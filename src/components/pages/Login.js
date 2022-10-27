@@ -45,7 +45,7 @@ const Login = () => {
         // console.log(email, password);
     }
 
-    const { user, providerLogin } = useContext(AuthContext);
+    const { providerLogin } = useContext(AuthContext);
     const googleProvider = new GoogleAuthProvider();
     const githubProvider = new GithubAuthProvider();
 
