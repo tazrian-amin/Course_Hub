@@ -8,6 +8,7 @@ import Home from "../../pages/Home";
 import Login from "../../pages/Login";
 import Premium from "../../pages/Premium";
 import Register from "../../pages/Register";
+import Terms from "../../pages/Terms";
 import PrivateRoute from "../privateRoute/PrivateRoute";
 
 export const routes = createBrowserRouter([
@@ -41,6 +42,10 @@ export const routes = createBrowserRouter([
             {
                 path: '/register',
                 element: <Register></Register>
+            },
+            {
+                path: '/terms',
+                element: <Terms></Terms>
             },
             {
                 path: '/faq',
