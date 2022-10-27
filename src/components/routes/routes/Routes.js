@@ -1,10 +1,14 @@
 import { createBrowserRouter } from "react-router-dom";
 import Main from "../../layout/Main";
+import Blog from "../../pages/Blog";
 import Category from "../../pages/Category";
-import Courses from "../../pages/Courses";
+import Course from "../../pages/Course";
+import FAQ from "../../pages/FAQ";
 import Home from "../../pages/Home";
 import Login from "../../pages/Login";
+import Premium from "../../pages/Premium";
 import Register from "../../pages/Register";
+import PrivateRoute from "../privateRoute/PrivateRoute";
 
 export const routes = createBrowserRouter([
     {
@@ -22,9 +26,13 @@ export const routes = createBrowserRouter([
                 loader: ({ params }) => fetch(`http://localhost:5000/category/${params.id}`)
             },
             {
-                path: '/courses/:id',
-                element: <Courses></Courses>,
-                loader: ({ params }) => fetch(`http://localhost:5000/courses/${params.id}`)
+                path: '/course/:id',
+                element: <Course></Course>,
+                loader: ({ params }) => fetch(`http://localhost:5000/course/${params.id}`)
+            },
+            {
+                path: '/premium',
+                element: <PrivateRoute><Premium></Premium></PrivateRoute>
             },
             {
                 path: '/login',
@@ -33,6 +41,14 @@ export const routes = createBrowserRouter([
             {
                 path: '/register',
                 element: <Register></Register>
+            },
+            {
+                path: '/faq',
+                element: <FAQ></FAQ>
+            },
+            {
+                path: '/blog',
+                element: <Blog></Blog>
             }
         ]
     }

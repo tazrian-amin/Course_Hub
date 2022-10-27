@@ -15,7 +15,7 @@ const Main = () => {
                         <Outlet></Outlet>
                     </Col>
 
-                    <Col lg="3">
+                    <Col lg="3" className='d-none d-lg-block'>
                         <Aside></Aside>
                     </Col>
                 </Row>
