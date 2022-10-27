@@ -1,4 +1,4 @@
-import { GoogleAuthProvider } from 'firebase/auth';
+import { GithubAuthProvider, GoogleAuthProvider } from 'firebase/auth';
 import React, { useContext, useState } from 'react';
 import { Button, ButtonGroup, Form } from 'react-bootstrap';
 import toast from 'react-hot-toast';
@@ -47,9 +47,20 @@ const Login = () => {
 
     const { user, providerLogin } = useContext(AuthContext);
     const googleProvider = new GoogleAuthProvider();
+    const githubProvider = new GithubAuthProvider();
 
     const handleGoogleSignIn = () => {
         providerLogin(googleProvider)
+            .then(res => {
+                const user = res.user;
+                console.log(user);
+                navigate(from, { replace: true });
+            })
+            .catch(error => console.error(error))
+    }
+
+    const handleGithubSignIn = () => {
+        providerLogin(githubProvider)
             .then(res => {
                 const user = res.user;
                 console.log(user);
@@ -84,7 +95,7 @@ const Login = () => {
             <div className='mt-4 text-center'>
                 <ButtonGroup vertical>
                     <Button onClick={handleGoogleSignIn} className='mb-2' variant="outline-light"><FaGoogle></FaGoogle> Login with Google</Button>
-                    <Button className='mb-2' variant="outline-light"><FaGithub></FaGithub> Login with GitHub</Button>
+                    <Button onClick={handleGithubSignIn} className='mb-2' variant="outline-light"><FaGithub></FaGithub> Login with GitHub</Button>
                 </ButtonGroup>
             </div>
         </div>

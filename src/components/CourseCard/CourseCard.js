@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { FaEye, FaStar } from 'react-icons/fa';
 
 const CourseCard = ({ course }) => {
-    console.log(course);
+    // console.log(course);
     const { details, image_url, rating, title, total_enrolled, _id } = course;
 
     return (
