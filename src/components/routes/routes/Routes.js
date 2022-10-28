@@ -2,7 +2,7 @@ import { createBrowserRouter } from "react-router-dom";
 import Main from "../../layout/Main";
 import Blog from "../../pages/Blog";
 import Category from "../../pages/Category";
-import Course from "../../pages/Course";
+import CourseDetails from "../../pages/CourseDetails";
 import FAQ from "../../pages/FAQ";
 import Login from "../../pages/Login";
 import PageNotFound from "../../pages/PageNotFound";
@@ -35,7 +35,7 @@ export const routes = createBrowserRouter([
             },
             {
                 path: '/course/:id',
-                element: <Course></Course>,
+                element: <CourseDetails></CourseDetails>,
                 loader: ({ params }) => fetch(`https://learning-platform-server-eta-seven.vercel.app/course/${params.id}`)
             },
             {

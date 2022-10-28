@@ -2,14 +2,14 @@ import React from 'react';
 import { Link, useLoaderData } from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
-import { FaDownload } from 'react-icons/fa';
+import { FaDownload, FaStar, FaUsers } from 'react-icons/fa';
 import Pdf from 'react-to-pdf';
 import { createRef } from 'react';
 
-const Course = () => {
+const CourseDetails = () => {
 
     const course = useLoaderData();
-    const { _id, title, image_url, details } = course;
+    const { _id, title, image_url, details, rating, total_enrolled } = course;
     const ref = createRef();
 
     return (
@@ -27,9 +27,13 @@ const Course = () => {
                     <Card.Text>
                         {details}
                     </Card.Text>
+                    <div>
+                        <p><FaStar className='text-warning'></FaStar> Rating : {rating.number}</p>
+                        <p><FaUsers className='text-warning'></FaUsers> Enrolled : {total_enrolled}</p>
+                    </div>
                     <div className='text-center'>
                         <Link to={`/checkout/${_id}`} course={course}>
-                            <Button className='fw-semibold' variant="warning">Get Premium Access</Button>
+                            <Button className='fw-semibold' variant="warning">Enroll For Premium Access</Button>
                         </Link>
                     </div>
                 </Card.Body>
@@ -38,4 +42,4 @@ const Course = () => {
     );
 };
 
-export default Course;
+export default CourseDetails;
