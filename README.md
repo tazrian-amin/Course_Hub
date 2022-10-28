@@ -4,12 +4,12 @@ Course Hub
 
 ## Live website link
 
-Link []()
+You can find our live website here... []()
 
 ### `Details`
 
-- For Client Side : ReactJs
-- For Server side : Firebase
-- Used React-Bootstrap, React-router-dom, firebase, react-icons and more tools to develop better user experience.
-- Used Google, Github and Email-password authentication
-- Overall, this project was made responsive for mobile & PC users
+- For Client Side, we have used ReactJs.
+- For Server side, we have used Firebase.
+- We have used Google, Github and Email-password authentication in Login & Sign up forms
+- Additionally, we have used React-Bootstrap, React-router-dom, firebase, react-icons and more tools to enhance user experience.
+- Moreover, we have made our website responsive for mobile & PC users

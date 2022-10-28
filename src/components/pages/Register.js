@@ -1,16 +1,31 @@
 import React, { useContext, useState } from 'react';
 import { Button, Form } from 'react-bootstrap';
 import toast from 'react-hot-toast';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../contexts/AuthProvider';
 
 const Register = () => {
 
     const [error, setError] = useState('');
     const [accepted, setAccepted] = useState(false);
-    const { createUser, updateUserProfile, verifyEmail } = useContext(AuthContext);
-    const navigate = useNavigate();
+    const { createUser, updateUserProfile } = useContext(AuthContext);
 
+    const navigate = useNavigate();
+    const location = useLocation();
+    const from = location.state?.from?.pathname || '/';
+
+    // User Profile update 
+    const handleUpdateUserProfile = (name, photoURL) => {
+        const profile = {
+            displayName: name,
+            photoURL: photoURL
+        };
+        updateUserProfile(profile)
+            .then(() => { })
+            .catch(err => console.error(err.message))
+    }
+
+    // Register New User
     const handleSubmit = event => {
         event.preventDefault();
         const form = event.target;
@@ -26,34 +41,16 @@ const Register = () => {
                 setError('');
                 form.reset();
                 handleUpdateUserProfile(name, photoURL);
-                handleEmailVerification();
-                toast.success('Please verify you email address!')
+                navigate(from, { replace: true });
+                toast.success('Registration Complete! Please reload the page.')
             })
             .catch(err => {
                 console.error(err);
                 setError(err.message);
             })
-            .finally(() => {
-                navigate('/');
-            })
     }
 
-    const handleUpdateUserProfile = (name, photoURL) => {
-        const profile = {
-            displayName: name,
-            photoURL: photoURL
-        };
-        updateUserProfile(profile)
-            .then(() => { })
-            .catch(err => console.error(err.message))
-    }
-
-    const handleEmailVerification = () => {
-        verifyEmail()
-            .then(() => { })
-            .catch(error => console.error(error))
-    }
-
+    // Terms & Conditions checkbox
     const handleCheck = (event) => {
         setAccepted(event.target.checked);
     }
@@ -97,7 +94,6 @@ const Register = () => {
                 </Form.Group>
             </Form>
         </div>
-
     );
 };
 

@@ -1,7 +1,6 @@
 import { GithubAuthProvider, GoogleAuthProvider } from 'firebase/auth';
 import React, { useContext, useState } from 'react';
 import { Button, ButtonGroup, Form } from 'react-bootstrap';
-import toast from 'react-hot-toast';
 import { FaGithub, FaGoogle } from 'react-icons/fa';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../contexts/AuthProvider';
@@ -15,6 +14,7 @@ const Login = () => {
     const location = useLocation();
     const from = location.state?.from?.pathname || '/';
 
+    // Log in using Email & Password
     const handleSubmit = event => {
         event.preventDefault();
         const form = event.target;
@@ -22,17 +22,10 @@ const Login = () => {
         const password = form.password.value;
 
         signIn(email, password)
-            .then(res => {
-                const user = res.user;
-                // console.log(user);
+            .then(() => {
                 setError('');
                 form.reset();
-                if (user.emailVerified) {
-                    navigate(from, { replace: true });
-                }
-                else {
-                    toast.error('Please verify your Email to continue.');
-                }
+                navigate(from, { replace: true });
             })
             .catch(error => {
                 console.error(error);
@@ -41,29 +34,25 @@ const Login = () => {
             .finally(() => {
                 setLoading(false);
             })
-
-        // console.log(email, password);
     }
 
     const { providerLogin } = useContext(AuthContext);
-    const googleProvider = new GoogleAuthProvider();
-    const githubProvider = new GithubAuthProvider();
 
+    // Log in with Google Provider 
+    const googleProvider = new GoogleAuthProvider();
     const handleGoogleSignIn = () => {
         providerLogin(googleProvider)
-            .then(res => {
-                const user = res.user;
-                console.log(user);
+            .then(() => {
                 navigate(from, { replace: true });
             })
             .catch(error => console.error(error))
     }
 
+    // Log in with GitHub Provider 
+    const githubProvider = new GithubAuthProvider();
     const handleGithubSignIn = () => {
         providerLogin(githubProvider)
-            .then(res => {
-                const user = res.user;
-                console.log(user);
+            .then(() => {
                 navigate(from, { replace: true });
             })
             .catch(error => console.error(error))
@@ -92,6 +81,7 @@ const Login = () => {
                     </Form.Text>
                 </Form.Group>
             </Form>
+
             <div className='mt-4 text-center'>
                 <ButtonGroup vertical>
                     <Button onClick={handleGoogleSignIn} className='mb-2' variant="outline-light"><FaGoogle></FaGoogle> Login with Google</Button>

@@ -31,9 +31,9 @@ const AuthProvider = ({ children }) => {
         return updateProfile(auth.currentUser, profile)
     }
 
-    const verifyEmail = () => {
-        return sendEmailVerification(auth.currentUser)
-    }
+    // const verifyEmail = () => {
+    //     return sendEmailVerification(auth.currentUser)
+    // }
 
     const logOut = () => {
         setLoading(true);
@@ -42,9 +42,10 @@ const AuthProvider = ({ children }) => {
 
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
-            if (currentUser === null || currentUser.emailVerified) {
-                setUser(currentUser);
-            }
+            // if (currentUser === null || currentUser.emailVerified) {
+            //     setUser(currentUser);
+            // }
+            setUser(currentUser);
             setLoading(false);
         });
         return () => {
@@ -61,7 +62,7 @@ const AuthProvider = ({ children }) => {
         createUser,
         signIn,
         updateUserProfile,
-        verifyEmail
+        // verifyEmail
     };
 
     return (

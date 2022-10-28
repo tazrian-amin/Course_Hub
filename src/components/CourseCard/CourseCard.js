@@ -4,11 +4,11 @@ import { Link } from 'react-router-dom';
 import { FaEye, FaStar } from 'react-icons/fa';
 
 const CourseCard = ({ course }) => {
-    // console.log(course);
+    console.log(course);
     const { details, image_url, rating, title, total_enrolled, _id } = course;
 
     return (
-        <Card className='w-75 mx-auto my-4 bg-dark text-white'>
+        <Card className='w-75 mx-auto my-4 bg-dark text-white rounded border border-2 border-warning'>
             <Card.Header>
                 <h3 className='text-warning'>{title}</h3>
             </Card.Header>

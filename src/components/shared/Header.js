@@ -3,7 +3,7 @@ import React, { useContext } from 'react';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import { FaUserAlt } from 'react-icons/fa';
+import { FaToggleOff, FaToggleOn, FaUserAlt } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import { Button, Image } from 'react-bootstrap';
 import Aside from './Aside';
@@ -38,12 +38,12 @@ const Header = () => {
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav">
                     <Nav className="me-auto">
-                        <Link className='mx-4 text-decoration-none fw-semibold text-warning' to="/">Courses</Link>
+                        <Link className='mx-4 text-decoration-none fw-semibold text-warning' to="/courses">Courses</Link>
                         <Link className='mx-4 text-decoration-none fw-semibold text-warning' to="/faq">FAQ</Link>
                         <Link className='mx-4 text-decoration-none fw-semibold text-warning' to="/blog">Blog</Link>
                     </Nav>
                     <Nav>
-                        <Nav title={`${user?.displayName}`} className='pe-2 pt-2 text-warning'>
+                        <Nav title={`${user?.displayName}`} className='me-3 py-2'>
                             {user?.photoURL ?
                                 <Image
                                     src={user.photoURL}
@@ -51,7 +51,7 @@ const Header = () => {
                                     roundedCircle
                                 ></Image>
                                 :
-                                <FaUserAlt></FaUserAlt>
+                                <FaUserAlt className='fs-5 text-warning'></FaUserAlt>
                             }
                         </Nav>
                         <>
@@ -61,19 +61,21 @@ const Header = () => {
                                         <Button onClick={handleLogOut} className='ms-2' variant="outline-danger">Sign Out</Button>
                                     </>
                                     :
-                                    <>
-                                        <Link to='/login'><Button className='mx-2' variant="outline-warning">Log In</Button></Link>
-                                    </>
+                                    <Button className='ms-2' variant="outline-warning">
+                                        <Link to='/login' className='text-decoration-none text-light fw-bold'>Log In</Link>
+                                    </Button>
                             }
                         </>
-                        <>
+                        <span className='text-light ms-4 mt-2 fw-semibold'>Dark Mode</span>
+                        <Button variant="outline-dark" className='' onClick={() => setShow(!show)}>
                             {
-                                show ? <p className='px-3 mt-2 text-warning'>Light</p> : <p className='px-3 mt-2 text-warning'>Dark</p>
+                                show ?
+                                    <FaToggleOff className='text-warning fs-4'></FaToggleOff>
+                                    :
+                                    <FaToggleOn className='text-warning fs-4'></FaToggleOn>
+
                             }
-                            {
-                                <button className='btn btn-dark' onClick={() => setShow(!show)}>Toggle Theme</button>
-                            }
-                        </>
+                        </Button>
                     </Nav>
                     <div className='d-lg-none'>
                         <Aside></Aside>

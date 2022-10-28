@@ -7,7 +7,7 @@ const Home = () => {
     // console.log(courses);
     return (
         <div>
-            <h3 className='text-center mt-4'>Welcome to Course Hub</h3>
+            <h2 className='p-2 mt-4 bg-dark text-light text-center w-75 mx-auto rounded border border-2 border-warning'>Welcome to Course Hub</h2>
             {
                 courses.map(course => <CourseCard
                     key={course._id}
