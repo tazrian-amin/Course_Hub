@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 const Aside = () => {
+
     const [categories, setCategories] = useState([]);
     useEffect(() => {
         fetch('https://learning-platform-server-eta-seven.vercel.app/course-categories')
@@ -12,7 +13,7 @@ const Aside = () => {
     }, [])
 
     return (
-        <div className='bg-dark text-white p-4 mt-4 border border-2 border-warning'>
+        <div className='bg-dark text-white p-4 mt-4 rounded border border-2 border-warning'>
             <h4 className='my-4'>Course Category</h4>
             <div>
                 {

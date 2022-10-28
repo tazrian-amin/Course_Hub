@@ -6,6 +6,7 @@ import Course from "../../pages/Course";
 import FAQ from "../../pages/FAQ";
 import Home from "../../pages/Home";
 import Login from "../../pages/Login";
+import PageNotFound from "../../pages/PageNotFound";
 import Premium from "../../pages/Premium";
 import Register from "../../pages/Register";
 import Terms from "../../pages/Terms";
@@ -62,5 +63,9 @@ export const routes = createBrowserRouter([
                 element: <Blog></Blog>
             }
         ]
+    },
+    {
+        path: '*',
+        element: <PageNotFound></PageNotFound>
     }
 ])
