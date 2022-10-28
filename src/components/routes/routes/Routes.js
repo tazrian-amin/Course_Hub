@@ -4,13 +4,14 @@ import Blog from "../../pages/Blog";
 import Category from "../../pages/Category";
 import Course from "../../pages/Course";
 import FAQ from "../../pages/FAQ";
-import Home from "../../pages/Home";
 import Login from "../../pages/Login";
 import PageNotFound from "../../pages/PageNotFound";
 import Premium from "../../pages/Premium";
 import Register from "../../pages/Register";
 import Terms from "../../pages/Terms";
 import PrivateRoute from "../privateRoute/PrivateRoute";
+import Courses from "../../pages/Courses";
+import Home from "../../pages/Home";
 
 export const routes = createBrowserRouter([
     {
@@ -24,7 +25,7 @@ export const routes = createBrowserRouter([
             },
             {
                 path: '/courses',
-                element: <Home></Home>,
+                element: <Courses></Courses>,
                 loader: () => fetch('https://learning-platform-server-eta-seven.vercel.app/courses')
             },
             {

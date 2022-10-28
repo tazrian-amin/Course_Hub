@@ -9,8 +9,8 @@ import { createRef } from 'react';
 const Course = () => {
 
     const course = useLoaderData();
-    const ref = createRef();
     const { _id, title, image_url, details } = course;
+    const ref = createRef();
 
     return (
         <div ref={ref}>

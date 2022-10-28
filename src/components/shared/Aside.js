@@ -13,7 +13,7 @@ const Aside = () => {
     }, [])
 
     return (
-        <div className='bg-dark text-white p-4 mt-4 rounded border border-2 border-warning'>
+        <div className='bg-dark bg-gradient text-white p-4 mt-4 rounded border border-2 border-warning'>
             <h4 className='my-4'>Course Category</h4>
             <div>
                 {
