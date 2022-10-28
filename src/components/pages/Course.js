@@ -14,7 +14,7 @@ const Course = () => {
 
     return (
         <div ref={ref}>
-            <h2 className='p-2 mt-4 bg-dark text-light text-center w-75 mx-auto rounded border border-2 border-warning'>Course Details</h2>
+            <h2 className='p-2 mt-4 bg-dark bg-gradient text-light text-center w-75 mx-auto rounded border border-2 border-warning'>Course Details</h2>
             <Card className='w-75 mx-auto mt-4 p-2 bg-dark text-white rounded border border-2 border-warning'>
                 <Card.Header className='d-flex align-items-center justify-content-between'>
                     <h3 className='text-warning'>{title}</h3>

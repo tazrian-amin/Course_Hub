@@ -1,14 +1,14 @@
 import React from 'react';
 import Card from 'react-bootstrap/Card';
 import { Link } from 'react-router-dom';
-import { FaEye, FaStar } from 'react-icons/fa';
+import { FaStar, FaUsers } from 'react-icons/fa';
 
 const CourseCard = ({ course }) => {
 
     const { details, image_url, rating, title, total_enrolled, _id } = course;
 
     return (
-        <Card className='w-75 mx-auto my-4 bg-dark text-white rounded border border-2 border-warning'>
+        <Card className='w-75 mx-auto my-4 bg-dark bg-gradient text-white rounded border border-2 border-warning'>
             <Card.Header>
                 <h3 className='text-warning'>{title}</h3>
             </Card.Header>
@@ -29,7 +29,7 @@ const CourseCard = ({ course }) => {
                     <span>{rating?.number}</span>
                 </div>
                 <div>
-                    <FaEye className='me-2'></FaEye>
+                    <FaUsers className='me-2'></FaUsers>
                     <span>{total_enrolled}</span>
                 </div>
             </Card.Footer>
