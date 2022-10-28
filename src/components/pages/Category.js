@@ -9,7 +9,7 @@ const Category = () => {
 
     return (
         <div>
-            <h2 className='p-2 mt-4 bg-dark bg-gradient text-light text-center w-75 mx-auto rounded border border-2 border-warning'>Courses on this category : {categoryCourse.length}</h2>
+            <h2 className='p-2 mt-4 bg-dark bg-gradient text-light text-center rounded border border-2 border-warning'>Courses on this category : {categoryCourse.length}</h2>
             {
                 categoryCourse.map(course => <CourseCard
                     key={course._id}

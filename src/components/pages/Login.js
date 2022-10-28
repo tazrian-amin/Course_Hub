@@ -59,7 +59,7 @@ const Login = () => {
     }
 
     return (
-        <div className='w-50 mx-auto mt-4 border border-2 border-warning p-4 bg-dark bg-gradient text-warning'>
+        <div className='mt-4 border border-2 border-warning p-4 bg-dark bg-gradient text-warning'>
             <Form onSubmit={handleSubmit}>
                 <Form.Group className="mb-3" controlId="formBasicEmail">
                     <Form.Label className='fw-semibold'>Email address</Form.Label>

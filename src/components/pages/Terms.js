@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 const Terms = () => {
     return (
-        <div className='w-50 mx-auto mt-4 border border-2 border-warning p-4 bg-dark text-white'>
+        <div className='mt-4 border border-2 border-warning p-4 bg-dark text-white'>
             <h2 className='text-warning'>Terms & Conditions</h2>
             <ol>
                 <li>You cannot withdraw from a course after 7 days of getting premium access.</li>
